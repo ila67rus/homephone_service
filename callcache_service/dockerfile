@@ -1,0 +1,12 @@
+FROM python:3.13.0
+
+WORKDIR /app/callcache_service
+COPY . /app/callcache_service
+
+ENV PYTHONPATH=/app/callcache_service
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Указываем команду по умолчанию
+EXPOSE 8003
+CMD ["flask", "run", "--host=0.0.0.0","--port=8003"]
