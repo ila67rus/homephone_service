@@ -1,4 +1,4 @@
-**# Homephone Service Project
+# Homephone Service Project
 
 ## Описание
 
