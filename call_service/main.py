@@ -2,7 +2,6 @@ from flask import Flask, jsonify, request
 import os
 import dotenv
 
-dotenv.load_dotenv()
 app = Flask(__name__)
 
 # Импортируем модели, чтобы они регистрировались в SQLAlchemy
@@ -10,7 +9,7 @@ from models import Call,start_db,session
 # Создаем таблицы, если их нет
 @app.before_request
 def create_tables():
-     """
+    """
     Перед каждым запросом проверяем наличие таблиц в базе данных.
     Если таблиц нет, они будут автоматически созданы.
     """
@@ -62,7 +61,7 @@ def call():
 
 @app.get("/call/history/")
 def history():
-      """
+    """
     Возвращает всю историю звонков из базы данных.
     Каждая запись включает:
     - ID звонка
