@@ -16,6 +16,7 @@ services:
       - user_service
       - call_service
       - logging_service
+    env_file: .env
 
   user_service:
     build:
@@ -24,6 +25,8 @@ services:
       - 8001:8001
     depends_on:
       - db
+    env_file: .env
+
   call_service:
     build:
       context: ./call_service
@@ -31,6 +34,7 @@ services:
       - 8002:8002
     depends_on:
       - db
+    env_file: .env
 
   logging_service:
     build:
@@ -39,6 +43,7 @@ services:
       - 8004:8004
     depends_on:
       - db
+    env_file: .env
 
   callcache_service:
     build:
@@ -49,6 +54,7 @@ services:
       - 8003:8003
     depends_on:
       - logging_service
+    env_file: .env
 
   db:
     image: postgres
