@@ -20,19 +20,6 @@ class User(BaseModel):
     phone: str
 
 
-
-
-@app.get("/")
-async def user_service_home():
-    """Главная страница User Service через API Gateway"""
-    async with httpx.AsyncClient() as client:
-        response = await client.get(f"{USER_SERVICE_URL}/")
-        if response.status_code == 200:
-            return response.text  # Возвращаем текстовое содержимое
-        else:
-            raise HTTPException(status_code=response.status_code, detail=response.text)
-
-
 @app.post("/users/")
 async def create_user(user: User):
     """Создать нового пользователя через User Service и записать лог через Logging Service"""
