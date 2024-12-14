@@ -10,8 +10,6 @@ services:
   api_gateway:
     build:
       context: ./api_gateway
-    ports:
-      - 8000:8000
     depends_on:
       - user_service
       - call_service
@@ -21,8 +19,6 @@ services:
   user_service:
     build:
       context: ./user_service
-    ports:
-      - 8001:8001
     depends_on:
       - db
     env_file: .env
@@ -30,8 +26,6 @@ services:
   call_service:
     build:
       context: ./call_service
-    ports:
-      - 8002:8002
     depends_on:
       - db
     env_file: .env
@@ -39,8 +33,6 @@ services:
   logging_service:
     build:
       context: ./logging_service
-    ports:
-      - 8004:8004
     depends_on:
       - db
     env_file: .env
@@ -50,8 +42,6 @@ services:
       context: ./callcache_service
     environment:
       - CACHE_URL=redis://redis:6379/0
-    ports:
-      - 8003:8003
     depends_on:
       - logging_service
     env_file: .env
