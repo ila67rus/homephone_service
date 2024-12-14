@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 import os
 import dotenv
-dotenv.load_dotenv()
+
 app = Flask(__name__)
 
 from models import UserLog,CallLog,start_db,session,datetime
@@ -56,7 +56,7 @@ def set_log_call():
 # Получение логов звонков за период времени
 @app.get("/log/calls/")
 def calls():
-      """
+    """
     Извлекает логи звонков за заданный период времени.
     Ожидает параметры:
     - 'start_date': начало периода (в формате YYYY-MM-DDTHH:MM:SS)
@@ -94,7 +94,7 @@ def calls():
 # Получение логов пользователей за период времени
 @app.get("/log/users/")
 def users():
-      """
+    """
     Извлекает логи действий пользователей за заданный период времени.
     Ожидает параметры:
     - 'start_date': начало периода (в формате YYYY-MM-DDTHH:MM:SS)
